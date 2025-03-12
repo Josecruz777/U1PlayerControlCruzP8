@@ -12,10 +12,16 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
     public float Speed = 20;
-
+    public float turnspeed;
+    public float horizontalInput;
+    public float forwardInput;
         // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime *  speed);
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        transform.Translate(Vector3.right * Time.deltaTime * turnspeed * horizontalInput);
     }
 }
