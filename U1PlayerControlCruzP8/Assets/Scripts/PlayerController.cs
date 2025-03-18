@@ -11,10 +11,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
 
     }
-    public float Speed = 20;
-    public float turnspeed;
-    public float horizontalInput;
-    public float forwardInput;
+   private Speed = 20.0f;
+   private turnSpeed = 45.0f;
+   private horizontalInput;
+   private frwardInput;
         // Update is called once per frame
     void Update()
     {
@@ -22,6 +22,6 @@ public class NewBehaviourScript : MonoBehaviour
         forwardInput = Input.GetAxis("Vertical");
 
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Translate(Vector3.right * Time.deltaTime * turnspeed * horizontalInput);
+        transform.Rotate(Vector3.up, turnspeed * horizontalInput * Time.deltaTime);
     }
 }
